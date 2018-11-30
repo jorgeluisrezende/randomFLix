@@ -1,0 +1,21 @@
+<%- include('head.ejs')%>
+    <link href="stylesheets/style.css" rel="stylesheet">    
+
+    <body>
+        <div class="container-fluid">
+              <div class="card" style="width: 38rem;">
+                    <img class="card-img-top" src="images/logo.png" alt="Card image cap">
+                    <div class="card-body">
+                      <h3 class="card-title">Fazer Login</h3>
+                      <form class="form-group" method="POST" action="/login">
+                        <p class="card-text">Nick</p><input placeholder="informe seu nick"  class="form-control" type="text" name="nick">
+                        <p class="card-text">Senha</p><input placeholder="informe sua senha" class="form-control" type="password" name="senha">
+                          <button type="submit" class="btn btn-dark" id="entrar">Entrar</button>
+                          <a href="/cadastro" class="btn btn-dark" id="cadastro">Cadastre-se</a>
+                          <h6><a href="#" id="esqueci" class="btn btn-default">Esqueci minha senha</a></h6>
+                      </form>
+                   
+                    </div>
+                  </div>    
+        </div>    
+    <%- include('footer.ejs')%>    

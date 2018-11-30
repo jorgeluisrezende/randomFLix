@@ -1,0 +1,65 @@
+body{
+    background-color:#000000; 
+}
+
+.card{
+    position: absolute;
+    left:33%;
+    top:15%;	
+}
+
+.card form{
+    margin-bottom: 50px;
+}
+
+#esqueci{
+    margin-top: -50px;
+    margin-left:110px;
+}
+
+.card #entrar {
+    background-color:#3CB371;
+    margin-top:20px;
+    border: #3CB371
+}
+
+.card #entrar:hover {
+    background-color:#2E8B57;
+    border: #2E8B57
+}
+
+.card #cadastro {
+    margin-top:20px;
+}
+
+.card h3,h6{
+    text-align: center
+}
+
+.card p{
+    margin-top: 10px;
+}
+
+.card img{
+    position: absolute;
+    width: 150px;
+    margin-top: -40px;
+    left:5px;
+}
+
+#warning{
+    width: 40px;
+    margin-left: 100px;
+    margin-top: -10px
+}
+
+.card{
+    padding: 40px;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+    margin-top:30px;
+}
+

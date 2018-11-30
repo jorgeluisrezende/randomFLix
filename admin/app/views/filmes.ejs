@@ -1,0 +1,80 @@
+<%- include('head.ejs')%>
+
+<script>
+    $(document).ready(function(){
+        
+        $('#btn').click(()=>{
+
+            let formData = new FormData();
+
+            let titulo = document.getElementById('titulo').value;
+            let genero = document.getElementById('gen').value;
+            let serie = document.getElementById('tipo').value;
+            let sinopse = document.getElementById('sinopse').value;
+            let foto = document.getElementById('foto').files[0];
+            
+            formData.append('titulo',titulo)
+            formData.append('genero',genero);
+            formData.append('serie',serie);
+            formData.append('sinopse',sinopse);
+            formData.append('foto',foto);
+
+            const post = 'http://localhost:8000/api/admin/filme';
+            fetch(post,{
+                method:'POST',
+                body:formData
+            })
+            .then((res)=>{
+                res.json();
+            })
+            .then((json)=>{
+                window.location.replace("/home");
+            });
+
+        })
+        
+       
+
+            });
+</script>
+
+<body>
+    <link href="stylesheets/filmes.css" rel="stylesheet">    
+    <div>
+        <%- include('menu.ejs')%>
+    </div>    
+
+    <div class="container">
+        <h1>Filmes</h1>
+        <div class="container-fluid">
+                <div class="card" id="card" style="width: 38rem;">
+                      <div class="card-body">
+                        <h3 class="card-title">Upload de arquivos</h3>
+                            <p class="card-text" style="margin-top: 2rem;">Titulo</p><input placeholder="Titulo" id="titulo" class="form-control" type="text" name="titulo">
+                            <p class="card-text" style="margin-top: 2rem;">Gênero</p>
+                            <select  class="form-control" id="gen" name="generos" form="form">
+                                    <option value="Comédia">Comédia</option>
+                                    <option value="Ação">Ação</option>
+                                    <option value="Suspense">Suspense</option>
+                                    <option value="Drama">Drama</option>
+                                    <option value="Terror">Terror</option>
+                                    <option value="Desenho">Desenho</option>
+                                    <option value="DesenhoA">Desenho Adulto</option>
+                                    <option value="Anime">Anime</option>
+                                    <option value="Infantil">Infantil</option>
+                            </select>
+
+                           
+                            <p class="card-text" style="margin-top: 2rem;">Série ou Filme?</p><input placeholder="Serie ou Filme? " id="tipo" class="form-control" type="text" name="tipo">
+
+                            <p class="card-text" style="margin-top: 2rem;">Sinópse</p><textarea name="Sinopse" id="sinopse" rows="10" cols="38"></textarea>
+
+                            <p class="card-text" style="margin-top: 2rem;">Foto</p><input class="form-control"  type="file" id="foto" name="foto">
+
+                            <button  style="margin-top: 2rem;"  class="btn btn-dark" id="btn">Enviar</button>
+                         
+                     
+                </div>
+        </div>    
+    </div>    
+</body>     

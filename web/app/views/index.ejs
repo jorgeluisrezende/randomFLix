@@ -1,0 +1,35 @@
+<%- include('head.ejs')%>    
+<link href="stylesheets/random.css" rel="stylesheet">    
+
+
+<body>
+    <div class="container-fluid">
+          
+                
+
+
+        <div class="card" style="width: 30rem;">
+             <img class="card-img-top" src="images/logo.png" alt="Card image cap">
+                <div class="card-body">
+                        <form class="form-group" id="categorias" method="POST" action="getFilmes">    
+                        <select  class="form-control" id="genero" name="generos">
+                            <% for(let i =0; i < categorias.resultados.length; i++){  %>
+                            <option value="<%= categorias.resultados[i].genero; %>"><%= categorias.resultados[i].genero; %></option>
+                            <% } %>    
+                        </select>
+                    
+                        <div> 
+                        <a id="botao" href="#"> 
+                            <button  class="btnR" type="submit" href="#" class="btn btn-default" >Click Aqui</button>
+                        </a>
+                        </div>
+                    
+                    </form>
+                </div>
+        </div>    
+
+   
+</div>             
+    
+<%- include('footer.ejs')%>    
+

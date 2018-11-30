@@ -1,0 +1,9 @@
+.container{
+    padding-top:30px;
+}
+
+
+#card{
+    position: relative;
+    left: 25%;
+}   

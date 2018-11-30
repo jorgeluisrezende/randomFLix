@@ -1,0 +1,138 @@
+body{
+    background-color:#000000; 
+}
+
+.card{
+    position: absolute;
+    left:33%;
+    top:15%;
+    padding: 40px;
+	
+}
+
+
+#erro{
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.card #entrar {
+    background-color:#3CB371;
+    margin-top:20px;
+    border: #3CB371
+}
+
+.card #entrar:hover {
+    background-color:#2E8B57;
+    border: #2E8B57
+}
+
+.card #cadastro {
+    margin-top:20px;
+}
+
+.card h3,h6{
+    text-align: center
+}
+
+.card p{
+    margin-top: 10px;
+}
+
+.card img{
+    position: absolute;
+    width: 150px;
+    margin-top: -40px;
+    left:5px;
+}
+
+.btnR{
+    background-color: #2E8B57;
+    display: block;
+    margin-top: 100px;
+    height: 200px;
+    border-radius: 50%;
+    width: 250px;
+    margin-left: 50px;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+
+
+.card-body a{
+    text-decoration: none
+}
+
+#title{
+    color:#ffffff;
+    margin-top: 50px;
+}
+
+.filmes{
+    display: flex;
+    flex:1;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    margin-left:-70px;
+    margin-top: -110px; 
+}
+
+.btnR:hover{
+    background-color: #ffffff;
+    border: 1px solid #2E8B57;
+    color:#2E8B57
+    
+}
+
+.btnR p:hover{
+    color:#2E8B57
+}
+
+#categorias{
+    margin-top: 80px;
+}
+
+.movie{
+    position: relative;
+    margin-top: 200px;
+    background-color: black;
+    width:100%;
+}
+
+.movie{
+    display: flex;
+    flex:1;
+    align-content: center;
+    align-items: center;
+    padding: 80px;
+    margin-left: 10px;
+    position: relative;
+    flex-wrap: wrap;
+
+}
+
+#movies{
+    padding:10px;
+}
+
+.movie img{
+
+    height: 300px;
+    width: 100%;
+    left:-1px;
+
+
+}
+
+.btnR{
+    font-size: 20pt;
+    color:#ffffff;
+}
+
+
+.back button{
+    background-color: #000000
+}
+

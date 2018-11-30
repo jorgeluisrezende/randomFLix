@@ -1,0 +1,78 @@
+<%- include('head.ejs')%>
+   
+
+<style>
+body{
+    background-color:black; 
+}
+
+.card{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:15%;
+}
+
+
+#erro{
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.card #entrar:hover {
+    background-color:#2E8B57;
+    border: #2E8B57
+}
+
+.card #cadastro {
+    margin-top:20px;
+}
+
+.card h3,h6{
+    text-align: center
+}
+
+.card p{
+    margin-top: 10px;
+}
+
+
+
+
+</style>  
+
+<body>
+    <div class="container">
+        <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title">Login Admin</h3>
+                  
+                  <% if(erros.length > 0){ %>
+                    <div class="alert alert-danger">
+                        <ul>
+                            <% for(let i = 0; i < erros.length; i++){ %>
+                                <li><%= erros[i].msg %></li>
+                            <% } %>    
+                        </ul>    
+                    </div>      
+                  <% } %>
+                 
+                  <form class="form-group" id="dados" action="/autenticar" method="POST" >
+                    <p class="card-text" label="email">Email</p><input id="email" placeholder="Email"  class="form-control" type="email" verified name="email">
+                    <p class="card-text" label="senha">Senha</p><input id="senha" placeholder="Cadastre sua senha" class="form-control" type="password" name="senha">
+                    <button  class="btn btn-dark" id="cadastro" >Entrar</button>
+                    <div id="swal"></div>
+                  </form>
+                </div>
+              </div>    
+              <div id="mensagem">
+              </div>
+    </div>    
+ 
+    
+
+ 
+
+

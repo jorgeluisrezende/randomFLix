@@ -1,0 +1,71 @@
+<%- include('head.ejs')%>
+<script>
+        $(document).ready(()=>{
+
+            let currentPage = document.getElementById('page');
+            var params   = window.location.search.replace("?p=", "");
+            
+            localStorage.setItem('p',params);
+            
+            $('.delete').on("click",()=>{
+                const id = this;
+                console.log($(this).text());
+                const del = `http://localhost:8000/api/admin/deleteFilmes/${id}`;
+                fetch(del,{
+                        method:'DELETE'
+                })
+                .then((res)=>{
+                        res.json();
+                })
+                .then((json)=>{
+                        console.log(json);
+                })
+            });
+    
+                
+
+        });
+</script>        
+<body>
+        <link href="stylesheets/home.css" rel="stylesheet">    
+        <div>
+                <%- include('menu.ejs')%>
+        </div>  
+        
+        <div class="container">
+                <div class="conteudo">
+                <h1>Lista de Filmes</h1>
+                        <div class="movie">
+                          <% if(movies.resultados.length > 0){ %>
+                                <% for(let i = 0;i < movies.resultados.length; i++){ %>
+                                <div id="movies">
+                                        <div class="card" style="width: 25rem;">
+                                                <div id="cardImage">
+                                                <img class="card-img-top" src="http://localhost:8000/image/<%= movies.resultados[i].foto %>" alt=" Card image cap">
+                                                </div>
+                                                
+                                                <div class="card-body">
+                                                        <h4 class="card-title"><%= movies.resultados[i].titulo %></h4>
+                                                        <p class="card-text"><%= movies.resultados[i].genero %></p>
+                                                        <p class="card-text"><%= movies.resultados[i].serie %></p>
+                                                        <p class="card-text"><%= movies.resultados[i].sinopse %></p>
+                                                        <button  class="btn btn-danger delete" id="btn" value="<%= movies.resultados[i].id %>">Excluir</button>
+                                                </div>
+                                        </div>
+                                </div>
+                                <% } %>
+                          <% } %>       
+                        </div>        
+                                        
+                                
+                                <% for(let i = 1; i <= numberOfPages; i++){ %>
+                                        <a href="home?p=<%= i %>"> 
+                                        <div  id="<%=(currentPage == i)?'pageActive':'paginas'; %>"><%= i %></div>
+                                        </a>         
+                                <% } %>         
+                                           
+                </div>    
+        </div>        
+
+
+</body>

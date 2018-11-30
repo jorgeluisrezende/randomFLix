@@ -1,0 +1,29 @@
+<%- include('head.ejs')%>    
+
+<link href="stylesheets/filmes.css" rel="stylesheet">  
+  
+<% if(movies.length > 1){ %> 
+    <div class='container-fluid' id="title">
+        <h1><%= movies[0].genero  %></h1>
+    </div>    
+    <div class="filmes">
+            
+            <% for(let i =0; i < movies.length; i++ ){ %>
+                
+                <div id="movies">
+                    <div class="card movie" style="width: 25rem;">
+                        <div id="cardImage">
+                            <img class="card-img-top" src="http://localhost:8000/image/<%= movies[i].foto %>" alt=" Card image cap">
+                        </div>                        
+                    </div>
+                </div>
+                
+            <% } %>       
+      
+    </div>
+    
+    <%}%>    
+    <div class="back">
+        <a href="/"><button class="btn btn-default">Voltar</button> </a>  
+    </div>
+    <%- include('footer.ejs')%>    

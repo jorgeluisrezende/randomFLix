@@ -1,0 +1,61 @@
+        <%- include('head.ejs')%>
+   
+        <link href="stylesheets/cadastro.css" rel="stylesheet">    
+
+        <body>
+            <div class="container-fluid">
+                <h1> </h1>
+                <div class="card" style="width: 38rem;">
+                        <img class="card-img-top" src="images/logo.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h3 class="card-title">Cadastre-se</h3>
+                          <% console.log(erro.json) %>
+                          <% if(erro.json.status.length > 0 && erro.json.success == false ){ %>
+                            <div id="status">
+                                <ul class="alert alert-danger" role="alert" >
+                                   
+                                    <li id="status"><p><%= erro.json.status %></p></li>
+                                </ul>      
+                           </div> 
+                           
+                          <% }else if(erro.json.status.length > 0 && erro.json.success == true){ %>  
+                            <div id="status">
+                                <ul class="alert alert-success" role="alert" >
+                                    <li id="status"><p><%= erro.json.status %></p></li>
+                                </ul>      
+                                <script>
+                                    setTimeout(()=>{
+                                      window.location.replace("/");
+                                    },2000)
+                                  </script>
+                           </div> 
+                          <% }else if(erro.json.err){  %>  
+                                <div id="status">
+                                    <ul class="alert alert-danger" role="alert">
+                                      <% for(let i=0; i < erro.json.status.length;i++ ){ %>  
+                                      <li>
+                                        <%=erro.json.status[i].msg%>
+                                      </li> 
+                                      <%}%>
+                                    </ul>  
+                                </div>  
+                          <% } %>  
+                          <form class="form-group" id="dados" method="POST" action="cadastrar" >
+                            <p class="card-text" label="nick">Nick</p><input id="nick" placeholder="Cadastre seu nick"  class="form-control" type="text" name="nick">
+                            <p class="card-text" label="email">Email</p><input id="email" placeholder="Email para fins de recuperacao de senha"  class="form-control" type="email" verified name="email">
+                            <p class="card-text" label="senha">Senha</p><input id="senha" placeholder="Cadastre sua senha" class="form-control" type="password" name="senha">
+                            <button  class="btn btn-dark" id="cadastro" >Completar Cadastro</button>
+                            <div id="swal"></div>
+                          </form>
+                        </div>
+                      </div>    
+                      <div id="mensagem">
+                      </div>
+            </div>    
+         
+            
+
+         
+        <%- include('footer.ejs')%>    
+        
+       
